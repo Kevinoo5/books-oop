@@ -8,10 +8,22 @@ class Shape {
         return this.sideLength * this.sides
     }
 }
-let square = new Shape("square", 4, 5)
-let triangle = new Shape("triangle", 3, 3)
 
+class Square extends Shape {
+    constructor(sideLength) {
+        super();
+        this.name = "square"
+        this.sides = 4
+        this.sideLength = sideLength
+    }
+    calcArea(){
+        return this.sideLength ** 2
+    }
+}
+
+let square = new Square(5)
 console.log(square)
-console.log(triangle)
 console.log(square.calcPerimeter())
-console.log(triangle.calcPerimeter())
+console.log(square.calcArea())
+
+
