@@ -1,29 +1,16 @@
-class Shape {
-    constructor(name, sides, sideLength) {
-        this.name = name
-        this.sides = sides
-        this.sideLength = sideLength
-    }
-    calcPerimeter(){
-        return this.sideLength * this.sides
-    }
+ui = new UI()
+ls = new LS()
+
+const submitButton = document.querySelector("#submit-book")
+const inputTitle = document.querySelector("#title")
+const inputAuthor = document.querySelector("#author")
+const inputISBN = document.querySelector("#isbn")
+submitButton.addEventListener("click", addBook)
+
+function addBook(e){
+    const book = new Book(inputTitle.value, inputAuthor.value, inputISBN.value)
+    ui.addBook(book.title, book.author, book.isbn)
+    ls.addBook(book)
+    book.addedToUI()
+    e.preventDefault()
 }
-
-class Square extends Shape {
-    constructor(sideLength) {
-        super();
-        this.name = "square"
-        this.sides = 4
-        this.sideLength = sideLength
-    }
-    calcArea(){
-        return this.sideLength ** 2
-    }
-}
-
-let square = new Square(5)
-console.log(square)
-console.log(square.calcPerimeter())
-console.log(square.calcArea())
-
-
