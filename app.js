@@ -5,6 +5,9 @@ const submitButton = document.querySelector("#submit-book")
 const inputTitle = document.querySelector("#title")
 const inputAuthor = document.querySelector("#author")
 const inputISBN = document.querySelector("#isbn")
+const table = document.querySelector("table")
+
+table.addEventListener("click", deleteBook)
 submitButton.addEventListener("click", addBook)
 
 function addBook(e){
@@ -13,4 +16,11 @@ function addBook(e){
     ls.addBook(book)
     book.addedToUI()
     e.preventDefault()
+}
+
+function deleteBook(e){
+    let book = e.target.parentElement.firstChild
+    ui.deleteBook(book)
+    book = e.target.parentElement.parentElement.children[2].innerText
+    ls.deleteBook(book)
 }

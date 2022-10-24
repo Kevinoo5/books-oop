@@ -18,4 +18,14 @@ class LS {
         this.setData("books", books)
         book.addedToLS()
     }
+
+    deleteBook(book) {
+        let books = this.getData("books")
+        books.forEach(function (booksElement, booksIndex){
+            if (booksElement.isbn === book) {
+                books.splice(booksIndex, 1);
+            }
+        });
+        this.setData("books", books)
+    }
 }
