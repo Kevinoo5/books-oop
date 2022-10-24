@@ -25,4 +25,25 @@ class UI {
             }
         }
     }
+
+    getBooks(books) {
+       for (let i = 0; i < books.length; i++) {
+           const getRow = table.insertRow()
+
+           const getCell1 = getRow.insertCell()
+           const getCell2 = getRow.insertCell()
+           const getCell3 = getRow.insertCell()
+           const getCell4 = getRow.insertCell()
+
+           const getCross = document.createElement('a')
+           getCross.appendChild(document.createTextNode('X'))
+           getCross.className = 'blue-text text-darken-2'
+           getCross.setAttribute('href', '#')
+
+           getCell1.innerHTML = books[i].title.toString()
+           getCell2.innerHTML = books[i].author.toString()
+           getCell3.innerHTML = books[i].isbn.toString()
+           getCell4.appendChild(getCross)
+       }
+    }
 }

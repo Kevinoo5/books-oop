@@ -9,6 +9,7 @@ const table = document.querySelector("table")
 
 table.addEventListener("click", deleteBook)
 submitButton.addEventListener("click", addBook)
+document.addEventListener("DOMContentLoaded", getBooks)
 
 function addBook(e){
     const book = new Book(inputTitle.value, inputAuthor.value, inputISBN.value)
@@ -23,4 +24,9 @@ function deleteBook(e){
     ui.deleteBook(book)
     book = e.target.parentElement.parentElement.children[2].innerText
     ls.deleteBook(book)
+}
+
+function getBooks(){
+    let books = ls.getData("books")
+    ui.getBooks(books)
 }
